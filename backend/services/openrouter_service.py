@@ -31,11 +31,13 @@ def extract_medical_data_with_ai_sync(
     from pydantic_settings import BaseSettings
     import os
     
-    # Read directly from environment/file to bypass cache
-    api_key = os.getenv("OPENROUTER_API_KEY", "").strip('"\'')
-    model = os.getenv("OPENROUTER_MODEL", "google/gemini-2.5-flash").strip('"\'')
-    enabled = os.getenv("OPENROUTER_ENABLED", "true").lower() == "true"
-    base_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").strip('"\'')
+    # Use standard settings mechanism which correctly loads .env
+    settings = get_settings()
+    
+    api_key = settings.openrouter_api_key
+    model = settings.openrouter_model
+    enabled = settings.openrouter_enabled
+    base_url = settings.openrouter_base_url
     
     if not api_key or not enabled:
         logger.info(f"OpenRouter not configured (key: {bool(api_key)}, enabled: {enabled})")
@@ -148,10 +150,12 @@ def get_ai_explanation_sync(
     """
     import os
     
-    api_key = os.getenv("OPENROUTER_API_KEY", "").strip('"\'')
-    model = os.getenv("OPENROUTER_MODEL", "google/gemini-2.5-flash").strip('"\'')
-    enabled = os.getenv("OPENROUTER_ENABLED", "true").lower() == "true"
-    base_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").strip('"\'')
+    settings = get_settings()
+    
+    api_key = settings.openrouter_api_key
+    model = settings.openrouter_model
+    enabled = settings.openrouter_enabled
+    base_url = settings.openrouter_base_url
     
     if not api_key or not enabled:
         return None
