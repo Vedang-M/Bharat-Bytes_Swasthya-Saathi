@@ -1,6 +1,6 @@
 
 
-  ## Swasthya Saathi Frontend
+  # Swasthya Saathi Frontend
 
   Run `npm i` to install the dependencies.
 
