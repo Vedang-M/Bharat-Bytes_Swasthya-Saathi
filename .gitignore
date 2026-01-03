@@ -1,0 +1,29 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+dist/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/.env
+.pytest_cache/
+
+# Project specifics
+backend/saved_reports/
+backend/db_data/
+
+# IDEs
+.vscode/
+.idea/

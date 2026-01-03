@@ -1,0 +1,33 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Ensure charts are visible */
+  svg, canvas {
+    display: block !important;
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+  
+  /* Maintain chart container height */
+  .recharts-responsive-container {
+    min-height: 350px !important;
+    height: 350px !important;
+  }
+
+  /* Cleanup for print */
+  button {
+    display: none !important;
+  }
+  
+  /* Remove shadows */
+  * {
+    box-shadow: none !important;
+  }
+}
