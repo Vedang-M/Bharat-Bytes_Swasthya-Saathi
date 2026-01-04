@@ -42,6 +42,28 @@ sudo apt-get install tesseract-ocr
 ```bash
 cp .env.example .env
 # Edit .env with your settings
+
+# Application Settings
+DEBUG=False
+MAX_FILE_SIZE_MB=10
+
+# MongoDB Configuration
+MONGODB_URL=mongodb://localhost:27017
+MONGODB_DB_NAME=swasthya_saathi
+
+# OpenRouter AI Configuration (Gemini)
+OPENROUTER_ENABLED=true
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+OPENROUTER_MODEL=google/gemini-3-flash-preview
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+
+# OCR Settings
+OCR_CONFIDENCE_THRESHOLD=0.7
+
+# Optional: Ollama (Local LLM)
+OLLAMA_ENABLED=false
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama2
 ```
 
 5. **Run the server:**
